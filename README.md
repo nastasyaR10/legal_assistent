@@ -13,9 +13,9 @@
 export CORE_MODE=real
 docker compose up --build
 ```
-URL: http://localhost:3000
-Порт для бэкенда: localhost:8000
-Порт для фронтенда: localhost:3000
+URL: http://localhost:3000 <br>
+Порт для бэкенда: localhost:8000 <br>
+Порт для фронтенда: localhost:3000 <br>
 
 ## Архитектура проекта
 ```text
