@@ -1,0 +1,38 @@
+# compose.yaml
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: lawyer-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - CORE_MODE=${CORE_MODE:-mock}
+      - DATA_DIR=/app/data
+      - SSL_VERIFY
+      - GIGACHAT_AUTH_KEY
+    volumes:
+      - ./data:/app/data
+      - ./mocks:/app/mocks
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: lawyer-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
