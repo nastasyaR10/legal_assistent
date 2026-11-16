@@ -29,7 +29,6 @@ lawyer_assistent/
 │ └── knowledge-base.zip # база знаний
 │
 ├── backend/ # FastAPI-обёртка над ядром
- init.py
 │ ├── Dockerfile
 │ └── main.py # /api/chat, /api/documents, /api/health
 │
@@ -41,21 +40,21 @@ lawyer_assistent/
 │ ├── prompts.py        # SYSTEM, USER, FIX, CRITIC, RECONSIDER
 │ ├── config.py         # env: LLM_BASE_URL, LLM_API_KEY, DATA_DIR, MAX_WORKERS
 │ └── schemas.py        # Message, Answer, Source, ParsedQuery, SearchHit
-
+│
 └── frontend/           # React + Vite + nginx
-|    ├── Dockerfile
-|    ├── nginx.conf          # listen 3000
-|    ├── package.json        # react, react-dom, vite
-|    ├── package-lock.json
-|    ├── vite.config.js      # port 3000, dev-proxy /api
-|    ├── index.html
-|    ├── .dockerignore 
-│    │
-│    └── src/
-│    │    ├── main.jsx            # ReactDOM.createRoot(<App />)
-│    │    ├── App.jsx             # состояние чата, localStorage, runChat, retry
-│    │    ├── api.js              # sendChat, listDocuments, getDocument, ApiError
-└──  │    ├── index.css           # стили: шапка, сообщения, источники, панели
+     ├── Dockerfile
+     ├── nginx.conf          # listen 3000
+     ├── package.json        # react, react-dom, vite
+     ├── package-lock.json
+     ├── vite.config.js      # port 3000, dev-proxy /api
+     ├── index.html
+     ├── .dockerignore 
+     │
+     └── src/
+     │    ├── main.jsx            # ReactDOM.createRoot(<App />)
+     │    ├── App.jsx             # состояние чата, localStorage, runChat, retry
+     │    ├── api.js              # sendChat, listDocuments, getDocument, ApiError
+     │    ├── index.css           # стили: шапка, сообщения, источники, панели
      └── components/
           ├── ChatWindow.jsx     # окно чата, форма, ClarifyOptions
           ├── Message.jsx        # пузырь, бейджи, «Повторить», SourceCard
