@@ -26,20 +26,20 @@ lawyer_assistent/
 ├── README.md
 │
 ├── data/
-│ └── knowledge-base.zip # база знаний
+│    └── knowledge-base.zip # база знаний
 │
 ├── backend/ # FastAPI-обёртка над ядром
-│ ├── Dockerfile
-│ └── main.py # /api/chat, /api/documents, /api/health
+│    ├── Dockerfile
+│    └── main.py # /api/chat, /api/documents, /api/health
 │
 ├── core/ # RAG-ядро
-│ ├── legal_core.py     # answer_question(): analyze → search → context → generate → verify
-│ ├── retriever.py      # BM25 + bge-m3 + RRF + реранкер
-│ ├── kb_loader.py      # knowledge-base.zip → чанки + метаданные
-│ ├── llm_client.py     # chat(), embed(), rerank()
-│ ├── prompts.py        # SYSTEM, USER, FIX, CRITIC, RECONSIDER
-│ ├── config.py         # env: LLM_BASE_URL, LLM_API_KEY, DATA_DIR, MAX_WORKERS
-│ └── schemas.py        # Message, Answer, Source, ParsedQuery, SearchHit
+│    ├── legal_core.py     # answer_question(): analyze → search → context → generate → verify
+│    ├── retriever.py      # BM25 + bge-m3 + RRF + реранкер
+│    ├── kb_loader.py      # knowledge-base.zip → чанки + метаданные
+│    ├── llm_client.py     # chat(), embed(), rerank()
+│    ├── prompts.py        # SYSTEM, USER, FIX, CRITIC, RECONSIDER
+│    ├── config.py         # env: LLM_BASE_URL, LLM_API_KEY, DATA_DIR, MAX_WORKERS
+│    └── schemas.py        # Message, Answer, Source, ParsedQuery, SearchHit
 │
 └── frontend/           # React + Vite + nginx
      ├── Dockerfile
